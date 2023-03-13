@@ -10,6 +10,10 @@ ex.
 127.0.0.1.txt  
 192.168.1.1.txt
 
+if file exists scan is skipped  
+ex.  
+File exists 127.0.0.1.txt skipping
+
 example:
 ```bash
 complete scan 127.0.0.1 port range 1:65534 test timeouts: [0.5, 1]
@@ -17,4 +21,9 @@ send open ports [(3306, b'o\x00\x00\x00\n5.5.5-10.9.4-MariaDB-1:10.9.4+maria~ubu
 recv open ports [3306, 6379, 6942]
 send possible ports [(58016, '[Errno 22] Invalid argument')]
 recv possible ports []
+```
+
+time to scan ports range 1-65534 max 1.5s spent on port
+```
+python3 port_scan.py 127.0.0.1  3.05s user 14.60s system 216% cpu 8.171 total
 ```
